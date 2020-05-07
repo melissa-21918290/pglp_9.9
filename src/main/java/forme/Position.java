@@ -42,7 +42,7 @@ public class Position {
 	public int getY(){
 		return y;
 	}
-	public void deplace(final int xValue, final int yValue){
+	public void deplacer(final int xValue, final int yValue){
 		x+= xValue;
 		y+= yValue;
 	}

@@ -4,7 +4,7 @@ public class carre extends Forme {
 	private Position hautGauche;
 	private int longeur;
 	
-	public carre(final String variable, final Position hautGauche,final int longeurCarre ){
+	public carre(final String variable, final Position hautGauchePosition,final int longeurCarre ){
 	super(variable);
 	this.hautGauche= hautGauchePosition.clone();
 	this.longeur=longeurCarre;
@@ -20,21 +20,21 @@ public class carre extends Forme {
 
 	@Override
 	public void deplacer(int x, int y) {
-		hautGauche.delacer(x,y);
+		hautGauche.deplacer(x,y);
 		
 	}
 
 
 	@Override
 	public void afficher() {
-		System.out.println("carre(longeur=" +longeur+",position du coin en haut à gauche="+hautgauche+")");;
+		System.out.println("carre(longeur=" +longeur+",position du coin en haut à gauche="+hautGauche+")");;
 	
 }
 	public Position getHautGauche(){
-		return hautgauche.clone();
+		return hautGauche.clone();
 	}
 	public void setHautGauche(final Position hautgauchePosition){
-		this.hautGauche=hautgauche.clone();
+		this.hautGauche=hautGauche.clone();
 	}
 	public int getLongeur(){
 		return longeur;
