@@ -47,11 +47,28 @@ public class GroupeForme extends Forme {
 		
 	}
 
-	
+	/**
+	 * ajouter un efomre ou un gourpe au groupe
+	 * @param f forme ou groupe a ajouter
+	 */
 	public void add(final Forme f) {
 		if(!formes.contains(f) && f!=this){
 			formes.add(f);
 			
 		}
+	}
+	/**
+	 * supprimer une forme ou un groupe du groupe
+	 * @param f forme ou groupe a supprimer du groupe
+	 */
+	public void remove(final Forme f){
+		formes.remove(f);
+	}
+	/**
+	 * obtenir la liste des formes et groupes du groupe
+	 * @return la liste des ofrmes et groupe du groupe
+	 */
+	public ArrayList<Forme>getList(){
+		return(ArrayList<Forme>) formes.clone();
 	}
 }
