@@ -1,10 +1,11 @@
 package forme;
+
 /**
  * 
  * @author Melissa
  *
  */
-public class carre extends Forme {
+public class Carre extends Forme {
 	/**
 	 * position du coin gauche en haut du carré
 	 */
@@ -22,7 +23,7 @@ public class carre extends Forme {
 	 * @param hautGauchePosition position du coin en haut a gauche
 	 * @param longeurCarre longeur du carré
 	 */
-	public carre(final String variable, final Position hautGauchePosition,final int longeurCarre ) throws Exception{
+	public Carre(final String variable, final Position hautGauchePosition,final int longeurCarre ) throws Exception{
 	super(variable);
 	this.hautGauche= hautGauchePosition.clone();
 	this.longeur=longeurCarre;
