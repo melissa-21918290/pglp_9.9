@@ -21,16 +21,37 @@ public class GroupeForme extends Forme {
 		formes= new ArrayList<Forme>();
 	}
 
+	/**
+	 * deplacer les formes
+	 */
 	@Override
 	public void deplacer(int x, int y) {
-		// TODO Auto-generated method stub
+		for(Forme f: formes){
+			f.deplacer(x, y);
+		}
 		
 	}
+	/**
+	 * afficher le groupe
+	 */
 
 	@Override
 	public void afficher() {
-		// TODO Auto-generated method stub
+		 super.afficher();
+	        System.out.println("Groupe (");
+	        for (Forme f : formes) {
+	            f.afficher();
+	        }
+	        System.out.println(")");
+	    
 		
 	}
 
+	
+	public void add(final Forme f) {
+		if(!formes.contains(f) && f!=this){
+			formes.add(f);
+			
+		}
+	}
 }

@@ -41,7 +41,9 @@ public abstract class Forme {
 	  /**
 	   * afficher la forme
 	   */
-	  public abstract void afficher();
+	  public  void afficher(){
+		  System.out.print(variable + " : ");
+	  }
 	  }
 
 
