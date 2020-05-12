@@ -25,7 +25,9 @@ public class Triangle extends Forme {
 	        points[2] = point3.clone();
 	    }
 	
-
+/**
+ * deplacer les point du triangle
+ */
 	@Override
 	public void deplacer(int x, int y) {
 		 final int trois = 3;
@@ -35,13 +37,28 @@ public class Triangle extends Forme {
 	    }
 		
 	
-
+/**
+ * afficher le triangle
+ */
 	@Override
 	public void afficher() {
 		   System.out.println("Triangle ("
 	                + "position des points = " + points[0] + ", "
 	                + points[1] + ", " + points[2] + ")");
 	    }
+	
+	/**
+	 * recuperer un moint du triangle
+	 * @param index valeur indiquand le point souhaité
+	 * @return le point souhaité
+	 */
+	public Position getPosition(final int index) {
+        if (index < 0 || index > 2) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            return points[index].clone();
+        }
+    }
 	}
 
 
