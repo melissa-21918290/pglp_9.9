@@ -62,7 +62,7 @@ public DaoCarreJDBC(final Connection c){
  * @return l'element
  */
 	@Override
-	public Carre find(String id) {
+	public Carre find(final String id) {
 		// TODO Auto-generated method stub
 		 final int un = 1;
 	        Carre find = null;
@@ -114,7 +114,7 @@ public DaoCarreJDBC(final Connection c){
  * @return la modification
  */
 	@Override
-	public Carre update(Carre object) {
+	public Carre update(final Carre object) {
 		final int un = 1, deux = 2, trois = 3, quatre = 4;
         final Carre before = this.find(object.getvariable());
         if (before != null) {
@@ -137,8 +137,12 @@ public DaoCarreJDBC(final Connection c){
         return object;
 	}
 
+	/**
+	 * supprimer un élément du DAO
+	 * @return object élément a supprimer
+	 */
 	@Override
-	public void delete(Carre object) {
+	public void delete(final Carre object) {
 		// TODO Auto-generated method stub
 		   final int un = 1;
 	        try {
@@ -156,9 +160,19 @@ public DaoCarreJDBC(final Connection c){
 	        }
 	    }
 
-
-	private void deleteComposant(String getvariable) {
-		// TODO Auto-generated method stub
+/**
+ * supprimer toutes les associatios de la forme dans le groupe
+ * @param id identifiant de la forme
+ */
+	private void deleteComposant(final String id) {
+		 final int un = 1;
+	        try {
+	            PreparedStatement prepare = connect.prepareStatement(
+	                    "DELETE FROM Composition WHERE idComposant = ?");
+	            prepare.setString(un, id);
+	            prepare.executeUpdate();
+	        } catch (SQLException e) {
+	        }
 		
 	}
 		
