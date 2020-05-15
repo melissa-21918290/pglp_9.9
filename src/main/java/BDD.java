@@ -8,17 +8,15 @@ import java.sql.Statement;
  *
  */
 public class BDD {
-/**
- * nom du dessin
- */
-	private static String NomBdd="bdd";
-	/**
-	 * modification du nom de la BDD
-	 * @param nom nouveau nom
-	 */
-	public static void setNomDessin(final String nom){
-		NomBdd= nom+ "";
-	}
+	 private static String nameBdd = "tmp";
+	    /**
+	     * modifier le nom de la base de donnée.
+	     * @param name nouveau nom
+	     */
+	    public static void setNomDessin(final String name) {
+	        nameBdd = name + "";
+	    }
+
 	/**
 	 * obtenir la connectiona BDD
 	 * @return connection à la bdd
@@ -26,7 +24,7 @@ public class BDD {
 	public static Connection getConnection() {
 	    try {
             return DriverManager.getConnection(
-                    "jdbc:derby:" + NomBdd + ";create=false");
+                    "jdbc:derby:" + nameBdd + ";create=false");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,7 +53,7 @@ public class BDD {
 	        Connection c;
 	        try {
 	            c = DriverManager.getConnection(
-	                "jdbc:derby:" + NomBdd + ";create=true");
+	                "jdbc:derby:" + nameBdd + ";create=true");
 	            c.close();
 	        } catch (SQLException e) {
 	            e.printStackTrace();
