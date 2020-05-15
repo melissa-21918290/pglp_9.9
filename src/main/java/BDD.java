@@ -153,5 +153,68 @@ public class BDD {
 	        Statement stat = connect.createStatement();
 	        stat.execute(table);
 	    }
+	 /**
+	  * creation de la table Rectangle
+	  * @param connect connection a la bdd
+	  * @throws SQLException erreur sql
+	  */
+	 private static void CreateTableRectangle(final Connection connect)
+			 throws SQLException {
+	        String table = "create table Rectangle ("
+	                + "variable varchar(30) primary key,"
+	                + "HautGaucheX int,"
+	                + "HautGaucheY int,"
+	                + "longeur int,"
+	                + "largeur int,"
+	                + "foreign key (variable) references Forme (variable)"
+	                + ")";
+	        Statement stat = connect.createStatement();
+	        stat.execute(table);
+	    }
+	 /**
+	  * creation de la table Cercle
+	  * @param connect connection a la bdd
+	  * @throws SQLException erreur sql
+	  */
+	 private static void CreateTableCercle(final Connection connect)
+			    throws SQLException {
+	        String table = "create table Cercle ("
+	                + "variable varchar(30) primary key,"
+	                + "centreX int,"
+	                + "centreY int,"
+	                + "rayon int,"
+	                + "foreign key (variable) references Forme (variable)"
+	                + ")";
+	        Statement stat = connect.createStatement();
+	        stat.execute(table);
+	    }
+	 /**
+	  * creation de la table GroupeForme
+	  * @param connect connection a la bdd
+	  * @throws SQLException erreur sql
+	  */
+	 private static void CreateTableGroupeForme(final Connection connect)
+			   throws SQLException {
+	        String table = "create table GroupeForme ("
+	                + "variable varchar(30) primary key,"
+	                + "foreign key (variable) references Forme (variable)"
+	                + ")";
+	        Statement stat = connect.createStatement();
+	        stat.execute(table);
+	    }
+	 private static void createTableRelation(final Connection connect)
+		      throws SQLException {
+	        String table = "create table Composition ("
+	                + "idGroupe varchar(30),"
+	                + "idComposant varchar(30),"
+	                + "primary key (idGroupe, idComposant),"
+	                + "foreign key (idGroupe) references "
+	                + "GroupeForme (variableName),"
+	                + "foreign key (idComposant) "
+	                + "references Forme (variableName)"
+	                + ")";
+	        Statement stat = connect.createStatement();
+	        stat.execute(table);
+	    }
 	}
 	
