@@ -17,6 +17,9 @@ public DeplacerC(final Forme f, final Position TabD){
 	this.Tab=TabD;
 	forme=f;
 }
+/**
+ * executer de la commande
+ */
 	public void executer() {
 		 forme.deplacer(Tab.getX(), Tab.getY());
 	        DaoFactoryJDBC factory = new DaoFactoryJDBC();
