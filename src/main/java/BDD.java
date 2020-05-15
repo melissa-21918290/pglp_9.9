@@ -38,14 +38,14 @@ public class BDD {
 	 */
 	public static void RestaurBDD() throws Exception{
 		 Connection connect = BDD.getConnection();
-	        BDD.delTables(connect);
-	        Bdd.initTableForme(connect);
-	        Bdd.initTableTriangle(connect);
-	        Bdd.initTableCarre(connect);
-	        initTableRectangle(connect);
-	        initTableCercle(connect);
-	        initTableGroupeForme(connect);
-	        initTableRelation(connect);
+	        BDD.supprimerTab(connect);
+	        BDD.CreateTableForme(connect);
+	        BDD.CreateTableTriangle(connect);
+	        BDD.CreateTableCarre(connect);
+	        CreateTableRectangle(connect);
+	        CreateTableCercle(connect);
+	        CreateTableGroupeForme(connect);
+	        createTableRelation(connect);
 	        connect.close();
 	    }
 	/**
@@ -103,11 +103,11 @@ public class BDD {
 		 
 	 }
 	 /**
-	  * 
-	  * @param connect
-	  * @throws SQLException
+	  * creation de la table Forme
+	  * @param connect connectiona bdd
+	  * @throws SQLException errur sql
 	  */
-	 private static void CreateTabForme(final Connection connect)
+	 private static void CreateTableForme(final Connection connect)
 	      throws SQLException {
 	          String table = "create table Forme ("
 	                  + "variable varchar(30) primary key"
@@ -121,7 +121,7 @@ public class BDD {
 	  * @param connect connection a la bdd
 	  * @throws SQLException erreur sql
 	  */
-	 private void CreateTableTriangle(final Connection connect)
+	 private static void CreateTableTriangle(final Connection connect)
 			  throws SQLException {
 	        String table = "create table Triangle ("
 	                + "variable varchar(30) primary key,"
