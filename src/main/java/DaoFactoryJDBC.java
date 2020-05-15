@@ -1,6 +1,7 @@
 
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * 
@@ -25,7 +26,7 @@ public class DaoFactoryJDBC {
 	 * @return le dao
 	 */
 public AbstractDao<GroupeForme>getDaoGroupeForme(){
-	return new DaoGroupeFormeJDBC();
+	return new DaoGroupeFormeJDBC(connect);
 	
 }
 /**
@@ -55,5 +56,15 @@ public AbstractDao<Cercle> getDaoCercle() {
  */
 public AbstractDao<Carre> getDaoCarre() {
     return new DaoCarreJDBC(connect);
+}
+/**
+ * fermer la connection
+ */
+public void close() {
+    try {
+        connect.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 }
 }
