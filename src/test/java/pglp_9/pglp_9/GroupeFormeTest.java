@@ -30,7 +30,7 @@ public class GroupeFormeTest {
 		 groupe.afficher();
 		 
 	 }
-	 
+	 @Test
 	 public void testDeplacer() throws Exception{
 		 GroupeForme groupe = new GroupeForme("groupe");
 		 Cercle C = new Cercle("c", new Position(2,3),5);
@@ -39,4 +39,11 @@ public class GroupeFormeTest {
 		  assertTrue(C.getCentre().toString().equals("(9,9)"));
 	 }
 
+	 public void testDelete() throws Exception{
+		 GroupeForme groupe = new GroupeForme("groupe");
+		 Cercle C = new Cercle("c", new Position(2,3),5);
+		 groupe.add(C);
+		 groupe.remove(C);
+		 assertTrue(groupe.getList().isEmpty());
+	 }
 }
