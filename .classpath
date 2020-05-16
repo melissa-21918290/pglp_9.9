@@ -22,5 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/pglp_4.2"/>
+	<classpathentry kind="src" path="/pglp_9_9"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
