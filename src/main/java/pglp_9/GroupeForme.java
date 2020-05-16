@@ -17,7 +17,7 @@ public class GroupeForme extends Forme {
  * constructeur de la classe 
  * @param newVariableName nom de la variable du groupe
  */
-	protected GroupeForme(String newVariableName) {
+	public GroupeForme(String newVariableName) {
 		super(newVariableName);
 		formes= new ArrayList<Forme>();
 	}
