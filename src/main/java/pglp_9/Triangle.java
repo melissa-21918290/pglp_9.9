@@ -17,7 +17,7 @@ public class Triangle extends Forme {
  * @param point2 point 2
  * @param point3 point 3
  */
-	protected Triangle(String newVariableName, final Position point1, final Position point2, final Position point3) {
+	public Triangle(String newVariableName, final Position point1, final Position point2, final Position point3) {
 		super(newVariableName);
       final int trois = 3;
 	        points = new Position[trois];
