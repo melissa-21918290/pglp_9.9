@@ -39,6 +39,7 @@ public class SupprimerC implements Command {
 	            }
 	        }
 	        factory.close();
+	        System.out.println(" La forme a été supprimée");
 	    }
 		
 	}

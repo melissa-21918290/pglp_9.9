@@ -76,8 +76,8 @@ public class DaoTriangleJDBC extends AbstractDao<Triangle> {
 	                            result.getInt("point2X"),
 	                            result.getInt("point2Y")),
 	                    new Position(
-	                            result.getInt("point3_x"),
-	                            result.getInt("point3_y")),
+	                            result.getInt("point3X"),
+	                            result.getInt("point3Y")),
 	                };
 	                find = new Triangle(id, p[0], p[1], p[2]);
 	            }
@@ -86,12 +86,27 @@ public class DaoTriangleJDBC extends AbstractDao<Triangle> {
 	        }
 	        return find;
 	}
-
+/**
+ * 
+ */
 	@Override
 	public ArrayList<Triangle> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Triangle> find = new ArrayList<Triangle>();
+        try {
+            PreparedStatement prepare = connect.prepareStatement(
+                    "SELECT variable FROM Triangle");
+            ResultSet result = prepare.executeQuery();
+            while (result.next()) {
+                find.add(this.find(result.getString("variable")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ArrayList<Triangle>();
+        }
+        return find;
 	}
+	
 
 	@Override
 	public Triangle update(final Triangle object) {
@@ -130,11 +145,11 @@ public class DaoTriangleJDBC extends AbstractDao<Triangle> {
 	        try {
 	            this.deleteAssociation(object.getvariable());
 	            PreparedStatement prepare = connect.prepareStatement(
-	                    "DELETE FROM Triangle WHERE variableName = ?");
+	                    "DELETE FROM Triangle WHERE variable = ?");
 	            prepare.setString(un, object.getvariable());
 	            prepare.executeUpdate();
 	            prepare = connect.prepareStatement(
-	                    "DELETE FROM Forme WHERE variableName = ?");
+	                    "DELETE FROM Forme WHERE variable = ?");
 	            prepare.setString(un, object.getvariable());
 	            prepare.executeUpdate();
 	        } catch (SQLException e) {

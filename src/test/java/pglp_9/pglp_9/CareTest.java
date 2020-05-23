@@ -6,6 +6,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import pglp_9.Carre;
 import pglp_9.Position;
+import pglp_9.DaoCarreJDBC;
+import pglp_9.BDD;
+
 
 /**
  * Unit test for simple App.
@@ -33,5 +36,8 @@ public class CareTest {
 		 Carre C = new Carre("C", new Position(2,3), 5);
 		 C.afficher();
 	 }
+
+			
+		
 	 
 	}

@@ -163,7 +163,7 @@ public class DaoGroupeFormeJDBC extends AbstractDao<GroupeForme> {
 	                    "SELECT variable FROM GroupeForme");
 	            ResultSet result = prepare.executeQuery();
 	            while (result.next()) {
-	                find.add(this.find(result.getString("variableName")));
+	                find.add(this.find(result.getString("variable")));
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
@@ -217,11 +217,11 @@ public class DaoGroupeFormeJDBC extends AbstractDao<GroupeForme> {
 	            this.deleteAssociation(object.getvariable());
 	            this.deleteAsso(object.getvariable());
 	            PreparedStatement prepare = connect.prepareStatement(
-	                    "DELETE FROM GroupeForme WHERE variableName = ?");
+	                    "DELETE FROM GroupeForme WHERE variable = ?");
 	            prepare.setString(un, object.getvariable());
 	            prepare.executeUpdate();
 	            prepare = connect.prepareStatement(
-	                    "DELETE FROM Forme WHERE variableName = ?");
+	                    "DELETE FROM Forme WHERE variable = ?");
 	            prepare.setString(un, object.getvariable());
 	            prepare.executeUpdate();
 	        } catch (SQLException e) {

@@ -17,7 +17,9 @@ public class CreationC implements Command {
 	public CreationC(final Forme f){
 		forme=f;
 	}
-	
+	/**
+	 * 
+	 */
 	public void executer() {
 		Forme f;
         DaoFactoryJDBC factory = new DaoFactoryJDBC();
@@ -39,11 +41,9 @@ public class CreationC implements Command {
         }
         factory.close();
         if (f != null) {
-            System.out.println("Forme ajoutée avec succes "
-                    + forme.getvariable() );
+            System.out.println("La forme "  + forme.getvariable()+" est ajoutée avec succes " );
         } else {
-            System.out.println("Une forme existe déjà  : "
-                    + forme.getvariable()+"veillez changer de nom ");
+            System.out.println(" La forme" + forme.getvariable()+ " existe déjà veillez changer de nom ");
         }
     }
 

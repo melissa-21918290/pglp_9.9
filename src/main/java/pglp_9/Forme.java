@@ -23,7 +23,7 @@ public abstract class Forme {
 	 * @param newVariable
 	 */
 	public void setVariable(final String newVariable){
-		variable=newVariable+ "";
+		variable=newVariable + "";
 	}
 	/**
 	 * constructeur pour definir la variable

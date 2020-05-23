@@ -34,7 +34,7 @@ public class DaoRectangleJDBC extends AbstractDao<Rectangle> {
                     prepare.executeUpdate();
             prepare = connect.prepareStatement(
                     "INSERT INTO Rectangle"
-                    + " (variable,HautGaucheX,HautGuacheY,longeur,largeur)"
+                    + " (variable,hautGaucheX,hautGaucheY,longeur,largeur)"
                     + " VALUES(?, ?, ?, ?, ?)");
             prepare.setString(un, object.getvariable());
             prepare.setInt(deux, object.gethautGauche().getX());
@@ -61,8 +61,8 @@ public class DaoRectangleJDBC extends AbstractDao<Rectangle> {
             ResultSet result = prepare.executeQuery();
             if (result.next()) {
                 Position p = new Position(
-                        result.getInt("HautGaucheX"),
-                        result.getInt("HautGaucheY")
+                        result.getInt("hautGaucheX"),
+                        result.getInt("hautGaucheY")
                 );
                 try {
                     find = new Rectangle(id, p,
@@ -107,13 +107,13 @@ public class DaoRectangleJDBC extends AbstractDao<Rectangle> {
 	        if (before != null) {
 	            try {
 	                PreparedStatement prepare = connect.prepareStatement(
-	                "UPDATE Rectangle SET HautGaucheX = ?, HautGaucheY = ?, "
+	                "UPDATE Rectangle SET hautGaucheX = ?, hautGaucheY = ?, "
 	                + "longeur = ?, largeur = ? WHERE variable = ?");
 	                prepare.setInt(un, object.gethautGauche().getX());
 	                prepare.setInt(deux, object.gethautGauche().getY());
 	                prepare.setInt(trois, object.getLongeur());
-	                prepare.setInt(cinq, object.getLargeur());
-	                prepare.setString(quatre, object.getvariable());
+	                prepare.setInt(quatre, object.getLargeur());
+	                prepare.setString(cinq, object.getvariable());
 	                prepare.executeUpdate();
 	            } catch (SQLException e) {
 	                e.printStackTrace();
@@ -133,11 +133,11 @@ public class DaoRectangleJDBC extends AbstractDao<Rectangle> {
         try {
             this.deleteAssociation(object.getvariable());
             PreparedStatement prepare = connect.prepareStatement(
-                    "DELETE FROM Rectangle WHERE variableName = ?");
+                    "DELETE FROM Rectangle WHERE variable = ?");
             prepare.setString(un, object.getvariable());
             prepare.executeUpdate();
             prepare = connect.prepareStatement(
-                    "DELETE FROM Forme WHERE variableName = ?");
+                    "DELETE FROM Forme WHERE variable = ?");
             prepare.setString(un, object.getvariable());
             prepare.executeUpdate();
         } catch (SQLException e) {

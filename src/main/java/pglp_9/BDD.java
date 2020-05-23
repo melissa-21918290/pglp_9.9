@@ -3,69 +3,60 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import mathieu.pglp_9_9.bdd.Bdd;
 /**
  * 
  * @author Melissa
  *
  */
 public class BDD {
-	 private static String nameBdd = "tmp";
-	    /**
-	     * modifier le nom de la base de donnée.
-	     * @param name nouveau nom
-	     */
-	    public static void setNomDessin(final String name) {
-	        nameBdd = name + "";
-	    }
-
-	/**
-	 * obtenir la connectiona BDD
-	 * @return connection à la bdd
-	 */
-	public static Connection getConnection() {
-	    try {
-            return DriverManager.getConnection(
-                    "jdbc:derby:" + nameBdd + ";create=false");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-	/**
-	 * restaurer la BDD
-	 * @throws Exception
-	 */
-	public static void RestaurBDD() throws Exception{
-		 Connection connect = BDD.getConnection();
-	        BDD.supprimerTab(connect);
-           	        BDD.CreateTableForme(connect);
-	        BDD.CreateTableTriangle(connect);
-	        BDD.CreateTableCarre(connect);
-	        BDD.CreateTableRectangle(connect);
-	      
-	        BDD.CreateTableCercle(connect);
-	       
-	        BDD.CreateTableGroupeForme(connect);
-	      
-	        BDD.createTableRelation(connect);
-	        System.out.println("je suis la ");
-	        
-
-	        connect.close();
-	    }
-	/**
-	 * creation de BDD
-	 */
-	 public static void creerBDD()  {
-	        Connection c;
+	
+	 
+	  public static Connection getConnection() {
 	        try {
-	            c = DriverManager.getConnection(
-	                "jdbc:derby:" + nameBdd + ";create=true");
-	            c.close();
+	            return DriverManager.getConnection(
+	                    "jdbc:derby:Ma_BDD;create=false");
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+	        return null;
 	    }
+	    /**
+	     * créer la base de donnée.
+	     * @throws Exception erreur de création
+	     */
+	  public static void RestaurBDD() throws Exception{
+			 Connection connect = BDD.getConnection();
+		        BDD.supprimerTab(connect);
+	           	        BDD.CreateTableForme(connect);
+		        BDD.CreateTableTriangle(connect);
+		        BDD.CreateTableCarre(connect);
+		        BDD.CreateTableRectangle(connect);
+		      
+		        BDD.CreateTableCercle(connect);
+		       
+		        BDD.CreateTableGroupeForme(connect);
+		      
+		        BDD.createTableRelation(connect);
+		
+	    
+	    }
+	    /**
+	     * créer la bdd.
+	     * @throws SQLException erreur de création
+	     */
+	    public static void createDataBase()  {
+	        try {
+	            DriverManager.getConnection(
+	                "jdbc:derby:Ma_BDD;create=true");
+	        } catch (SQLException e) {
+	           System.out.println("la base de donnée existe déjà");
+	        }
+	    }
+	
+	
+	   
 	 /**
 	  * suppression des tables
 	  * @param connect connection ala BDD

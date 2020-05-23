@@ -12,13 +12,13 @@ public class Triangle extends Forme {
 	private Position [] points;
 /**
  * constructeur de la classe triangle
- * @param newVariableName nom de l avariable pour creer le triangle
+ * @param newVariable nom de l avariable pour creer le triangle
  * @param point1 point 1
  * @param point2 point 2
  * @param point3 point 3
  */
-	public Triangle(String newVariableName, final Position point1, final Position point2, final Position point3) {
-		super(newVariableName);
+	public Triangle(String newVariable, final Position point1, final Position point2, final Position point3) {
+		super(newVariable);
       final int trois = 3;
 	        points = new Position[trois];
 	        points[0] = point1.clone();

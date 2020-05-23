@@ -118,7 +118,9 @@ public class DaoCercleJDBC extends AbstractDao<Cercle> {
 	            try {
 	                PreparedStatement prepare = connect.prepareStatement(
 	                "UPDATE Cercle SET centreX = ?, centreY = ?, "
-	                + "rayon = ? WHERE id = ?");
+	                + "rayon = ? WHERE variable = ?");
+	                
+	                System.out.println("je suis la ");
 	                prepare.setInt(un, object.getCentre().getX());
 	                prepare.setInt(deux, object.getCentre().getY());
 	                prepare.setInt(trois, object.getRayon());

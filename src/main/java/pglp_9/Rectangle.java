@@ -26,9 +26,9 @@ public class Rectangle extends Forme {
 	 * @param largeurRectangle largeur du rectangle
 	 */
 
-	public Rectangle(String newVariableName, final Position hautGauchePosition, final int longeurRectangle, final int largeurRectangle) throws Exception{
+	public Rectangle(String variable, final Position hautGauchePosition, final int longeurRectangle, final int largeurRectangle) throws Exception{
 		
-		super(newVariableName);
+		super(variable);
 		this.hautGauche = hautGauchePosition.clone();
         this.longeur = longeurRectangle;
         this.largeur = largeurRectangle;

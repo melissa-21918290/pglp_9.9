@@ -61,7 +61,7 @@ public class Position {
 	 * @return la valeur de x en abscisse
 	 */
 	public int getX(){
-		return y;
+		return x;
 	}
 	/**
 	 * 
