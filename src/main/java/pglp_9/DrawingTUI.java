@@ -341,10 +341,10 @@ public Command nextCommand(final String cmd) {
         return this.remove(cmd);
     } else if (cmd.equals("start")) {
         System.out.println("Liste des commandes: \n"
+        		+ "* Carré :....."+ " variable = Ca"
+                + "rre((x,y), longueur)\n"
                 + "* Cercle:....."
                 + "variable = Ce"+ "rcle((x,y), rayon)\n"
-                + "* Carré :....."+ " variable = Ca"
-                + "rre((x,y), longueur)\n"
                 + "* Rectangle : ......"
                 + " variable = Re"
                 + "ctangle((x,y), longueur, largeur)\n"

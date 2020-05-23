@@ -69,7 +69,9 @@ public class GroupeForme extends Forme {
 	 * obtenir la liste des formes et groupes du groupe
 	 * @return la liste des ofrmes et groupe du groupe
 	 */
-	public ArrayList<Forme>getList(){
-		return(ArrayList<Forme>) formes.clone();
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Forme> getList(){
+		return (ArrayList<Forme>) formes.clone();
 	}
 }

@@ -185,18 +185,18 @@ public class DaoGroupeFormeJDBC extends AbstractDao<GroupeForme> {
             for (Forme f : object.getList()) {
                 if (f.getClass() == Cercle.class) {
                     AbstractDao<Cercle> dao = factory.getDaoCercle();
-                    dao.create((Cercle) f);
+                    dao.update((Cercle) f);
                 } else if (f.getClass() == Carre.class) {
                     AbstractDao<Carre> dao = factory.getDaoCarre();
-                    dao.create((Carre) f);
+                    dao.update((Carre) f);
                 } else if (f.getClass() == Rectangle.class) {
                     AbstractDao<Rectangle> dao = factory.getDaoRectangle();
-                    dao.create((Rectangle) f);
+                    dao.update((Rectangle) f);
                 } else if (f.getClass() == Triangle.class) {
                     AbstractDao<Triangle> dao = factory.getDaoTriangle();
-                    dao.create((Triangle) f);
+                    dao.update((Triangle) f);
                 } else {
-                    this.create((GroupeForme) f);
+                    this.update((GroupeForme) f);
                 }
                 this.createAssociation(
                         object.getvariable(), f.getvariable());
