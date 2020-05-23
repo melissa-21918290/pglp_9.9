@@ -1,9 +1,7 @@
 package pglp_9;
-import java.io.File;
 import java.util.Scanner;
 
-
-
+ 
 
 /**
  * 
@@ -23,7 +21,7 @@ public class DrawingApp {
 	 * constructeur de la classe
 	 */
 	public DrawingApp(){
-		D = new DrawingTUI();
+		D = new pglp_9.DrawingTUI();
         saisir = new Scanner(System.in);
 	}
 	/**
