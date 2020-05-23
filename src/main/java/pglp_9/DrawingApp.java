@@ -26,22 +26,11 @@ public class DrawingApp {
 		D = new DrawingTUI();
         saisir = new Scanner(System.in);
 	}
-	/*public void run(){
-		  System.out.print("Entrez help pour obtenir la liste des commandes.\n");
-	        String cmd = saisir.nextLine();
-	        Command c;
-	        while (!cmd.equalsIgnoreCase("exit")) {
-	            c = D.nextCommand(cmd);
-	            if (c != null) {
-	            	
-	                c.executer();
-	            }
-	            System.out.println("saisir >");
-	            cmd = saisir.nextLine();
-	        }
-	    }*/
+	/**
+	 * execution des commandes
+	 */
 	  public void run() {
-	        System.out.print("Bonjour, pour commencer votre dessin entrez start.\n>");
+	        System.out.print("Bonjour, pour commencer votre dessin entrez start, et exit pour quitter.\n>");
 	        String cmd = saisir.nextLine();
 	        Command c;
 	        while (!cmd.equals("exit")) {
@@ -49,7 +38,7 @@ public class DrawingApp {
 	            if (c != null) {
 	                c.executer();
 	            }
-	            D.afficheDessin();
+	            D.affichageDuDessin();
 	            System.out.print("saisir ==>");
 	            cmd = saisir.nextLine();
 	           

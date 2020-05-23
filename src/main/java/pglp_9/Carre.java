@@ -46,7 +46,7 @@ public class Carre extends Forme {
  */
 	@Override
 	public void afficher() {
-		System.out.println("carre(longeur=" +longeur+",position du coin en haut à gauche="+hautGauche+")");;
+		System.out.println("carre(longeur=" +longeur+",position du point a l'extremité haut gauche="+hautGauche+")");;
 	
 } 
 	

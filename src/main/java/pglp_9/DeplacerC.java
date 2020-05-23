@@ -20,7 +20,7 @@ public DeplacerC(final Forme f, final Position TabD){
 	forme=f;
 }
 /**
- * executer de la commande
+ * execution de la commande
  */
 	public void executer() {
 		 forme.deplacer(Tab.getX(), Tab.getY());

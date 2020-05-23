@@ -11,7 +11,10 @@ import mathieu.pglp_9_9.bdd.Bdd;
  *
  */
 public class BDD {
-	
+	/**
+	 * connection a la BDD
+	 * @return la connection a la BDD
+	 */
 	 
 	  public static Connection getConnection() {
 	        try {

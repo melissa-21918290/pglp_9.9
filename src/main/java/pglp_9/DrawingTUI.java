@@ -1,11 +1,23 @@
 package pglp_9;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+/**
+ * 
+ * @author Melissa
+ *
+ */
 
 public class DrawingTUI {
+	/**
+	 * interpretation de la commande de creation du Cercle
+	 * @param variable nom de la forme
+	 * @param split2 la donnée
+	 * @return la forme cercle
+	 */
 private Forme createCercle( final String variable, final String[] split2){
 	
 	 final int trois = 3;
@@ -39,7 +51,12 @@ private Forme createCercle( final String variable, final String[] split2){
 
 
 
-
+/**
+ * interpretation de la commande de creation du Carre
+ * @param variable nom de la variable 
+ * @param split2 la donnée
+ * @return la fomre Carre
+ */
 
 private Forme createCarre(  final String variable, final String[] split2){
 	final int trois = 3;
@@ -71,7 +88,12 @@ private Forme createCarre(  final String variable, final String[] split2){
 
 
 
-
+/**
+ * interpretation de la commande de creation du Rectangle
+ * @param variable nom de la variable
+ * @param split2 la donnée
+ * @return la forme Rectangle
+ */
 
 private Forme createRectangle(final String variable, final String[] split2){
 	final int quatre = 4;
@@ -104,7 +126,12 @@ private Forme createRectangle(final String variable, final String[] split2){
     }
     return null;
 }
-	
+	/**
+	 * interpretation dela commande de creation du Triangle
+	 * @param variable nom de la variable
+	 * @param split2 la donnée
+	 * @return la forme Triangle
+	 */
 private Forme createTriangle(final String variable, final String[] split2){
 	final int six = 6;
     String[]  split = split2[1].split("Triangle");
@@ -133,7 +160,12 @@ private Forme createTriangle(final String variable, final String[] split2){
     }
     return null;
 }
-
+/**
+ * interpretation de la commande Groupe forme
+ * @param variable non de la variable
+ * @param split2 la données
+ * @return le Groupe de formes
+ */
 private Forme createGroupe(final String variable, final String[] split2){
 	String[] split = split2[1].split("Groupe");
     if (!split[0].equals("")
@@ -147,12 +179,12 @@ private Forme createGroupe(final String variable, final String[] split2){
     return null;
 }
 
-
-
-
-
-
-
+/**
+ * interpretation de la commande pour la greation d'une partie composante
+ * @param variable nom de la variable
+ * @param split la données
+ * @return le groupe
+ */
 private Forme createGroupeComposants(String variable, String[] split) {
     GroupeForme gf = new GroupeForme(variable);
     for (String s : split) {
@@ -166,12 +198,11 @@ private Forme createGroupeComposants(String variable, String[] split) {
     return gf;
 }
 
-
-
-
-
-
-
+/**
+ * recupere la forme 
+ * @param variable nom de la forme
+ * @return la forme
+ */
 private Forme getForme(final String variable) {
 	 DaoFactoryJDBC factory = new DaoFactoryJDBC();
      AbstractDao<Cercle> daoCe = factory.getDaoCercle();
@@ -199,6 +230,11 @@ private Forme getForme(final String variable) {
      factory.close();
      return f;
 }
+/**
+ * interpretation de la commande de creation de la forme
+ * @param cmd2 la commande
+ * @return la forme
+ */
 private Forme create(final String cmd2){
 	String[] split;
     split = cmd2.split("=");
@@ -224,6 +260,11 @@ private Forme create(final String cmd2){
     }
     return null;
 }
+/**
+ * interpretation de la commande pour deplacer la forme
+ * @param cmd2 la commande
+ * @return la coommande de deplacement
+ */
 private Command move(final String cmd2){
 	final int trois = 3;
     String cmd = cmd2.replace(" ", "");
@@ -255,7 +296,11 @@ private Command move(final String cmd2){
     }
     return null;
 }
-
+/**
+ * interpretation de la commande pour supprimer la forme
+ * @param cmd2 la commande
+ * @return la commande de suppression
+ */
 private Command remove(final String cmd2) {
     String cmd = cmd2.replace(" ", "");
     String[] split = cmd.split("delete");
@@ -279,9 +324,11 @@ private Command remove(final String cmd2) {
     }
     return null;
 }		
-
-
-
+/**
+ * interpretation d'une commande
+ * @param cmd commande à interpreter
+ * @return la commande
+ */
 public Command nextCommand(final String cmd) {
     if (cmd.contains("=")) {
         Forme f = this.create(cmd);
@@ -293,10 +340,10 @@ public Command nextCommand(final String cmd) {
     } else if (cmd.contains("delete")) {
         return this.remove(cmd);
     } else if (cmd.equals("start")) {
-        System.out.println("Commandes: \n"
+        System.out.println("Liste des commandes: \n"
                 + "* Cercle:....."
                 + "variable = Ce"+ "rcle((x,y), rayon)\n"
-                + "* Carré :.....   "+ " variable = Ca"
+                + "* Carré :....."+ " variable = Ca"
                 + "rre((x,y), longueur)\n"
                 + "* Rectangle : ......"
                 + " variable = Re"
@@ -304,24 +351,27 @@ public Command nextCommand(final String cmd) {
                 + "* Triangle :....."
                 + "variable = Tr"
                 + "iangle((x,y), (x,y), (x,y))\n"
-                + "* Groupe de forme(s) :....."
+                + "* Groupe de formes :....."
                 + "variable = Gr"
                 + "oupe(variable, ...)\n"
                 + "\n"
                 + "* déplacer une forme ou un groupe :....."
                 + "  move(variable"
                 + ", (x,y))\n"
-                + "\n"
                 + "* supprimer une forme ou un groupe :....."
-                + " delete(variableNa"
-                + "me, ...)");
+                + " delete(variable, ...)"
+                +"\n\n\n ............veuillez introduire une commande tout en respectant la syntaxe.............\n");
     } else if (!cmd.equalsIgnoreCase("exit")) {
-        System.err.println("Commande non reconnu");
+        System.err.println("Commande non reconnue");
     }
     return null;
 }
 
-
+/**
+ * voir si une forme existe dans un groupe
+ * @param f forme a rechercher
+ * @return vrai si la forme existe dans le groupe
+ */
 private boolean estDansUnGroupe(final Forme f) {
     Connection connect = BDD.getConnection();
     try {
@@ -344,8 +394,10 @@ private boolean estDansUnGroupe(final Forme f) {
         return false;
     }
 }
-
-public  void afficheDessin() {
+/**
+ * affichage des formes
+ */
+public  void affichageDuDessin() {
     DaoFactoryJDBC factory = new DaoFactoryJDBC();
     AbstractDao<Cercle> daoCe = factory.getDaoCercle();
     AbstractDao<Carre> daoCa = factory.getDaoCarre();

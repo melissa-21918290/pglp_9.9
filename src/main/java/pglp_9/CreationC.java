@@ -18,7 +18,7 @@ public class CreationC implements Command {
 		forme=f;
 	}
 	/**
-	 * 
+	 *  execution de la commande
 	 */
 	public void executer() {
 		Forme f;

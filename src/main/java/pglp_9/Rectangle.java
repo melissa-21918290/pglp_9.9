@@ -48,7 +48,7 @@ public class Rectangle extends Forme {
 	public void afficher() {
 		System.out.println("Rectangle (longueur = "
                 + longeur + ", largeur = " + largeur
-                + ", position du coin en haut à gauche = " + hautGauche + ")");
+                + ", position du point a l'extremité haut gauche = " + hautGauche + ")");
 	}
 	
 	/**

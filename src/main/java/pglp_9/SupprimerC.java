@@ -11,12 +11,16 @@ public class SupprimerC implements Command {
 	 * listes des formes à supprimer
 	 */
 	 private ArrayList<Forme> list;
+	 /**
+	  * constructeur de la classe
+	  * @param f liste des formes a supprimer
+	  */
 	 
 	 public SupprimerC(final ArrayList<Forme>f){
 		 list=f;
 	 }
 	 /**
-	  * executer la commande
+	  * execution de la commande
 	  */
 	public void executer() {
 		 DaoFactoryJDBC factory = new DaoFactoryJDBC();
